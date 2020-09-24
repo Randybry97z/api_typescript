@@ -10,6 +10,7 @@ import 'express-async-errors';
 //Importing routes
 import Ping from './routes/Ping';
 import Palindrome from './routes/Palindrome';
+import Repeated from './routes/Repeated';
 
 import logger from '@shared/Logger';
 
@@ -32,6 +33,7 @@ if (process.env.NODE_ENV === 'production') {
 
 app.use('/ping', Ping);
 app.use('/palindrome', Palindrome);
+app.use('/repeated', Repeated);
 
 // Export express instance
 export default app;
