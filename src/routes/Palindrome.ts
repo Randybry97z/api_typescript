@@ -1,13 +1,14 @@
 import { Request, Response, NextFunction, Router } from 'express';
 
-let router = Router();
+const router = Router();
+const base_url = process.env.BASE_URL;
 
 router.route('/').get((req: Request, res: Response, next: NextFunction) => {
   res.json(
     {
       "message": "Hello if you want to know if one string is palindrome, set the word in the url",
-      "route": "http://localhost:3000/palindrome/:word",
-      "example": "http://localhost:3000/palindrome/oso"
+      "route": `${base_url}/palindrome/:word`,
+      "example": `${base_url}/palindrome/oso`
     }
   )
 })

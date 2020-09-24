@@ -1,6 +1,7 @@
 import { Router } from 'express';
 
 const router = Router();
+let base_url = process.env.BASE_URL;
 
 router.route('/')
   .get((req, res, next) => {
@@ -8,8 +9,8 @@ router.route('/')
       {
         "message": "Welcome to the route for count the strings & know how many times it's repeated",
         "tip": "If you want to know if your string have words repeated & want to know how many times, go to the next route",
-        "route": "http://localhost:3000/repeated/:phrase1_phrase2_phrasen",
-        "example": "http://localhost:3000/repeated/aaaa_bbbb_aaaa"
+        "route": `${base_url}/repeated/:phrase1_phrase2_phrasen`,
+        "example": `${base_url}/repeated/aaaa_bbbb_aaaa`
       }
     )
   });
