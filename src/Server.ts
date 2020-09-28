@@ -12,6 +12,8 @@ import Ping from './routes/Ping';
 import Palindrome from './routes/Palindrome';
 import Repeated from './routes/Repeated';
 import Anime from './routes/Anime';
+import Queue from './routes/Queue';
+import Stack from './routes/Stack';
 
 import logger from '@shared/Logger';
 
@@ -36,6 +38,8 @@ app.use('/ping', Ping);
 app.use('/palindrome', Palindrome);
 app.use('/repeated', Repeated);
 app.use('/anime', Anime);
+app.use('/queue', Queue);
+app.use('/stack', Stack);
 
 // Export express instance
 export default app;
