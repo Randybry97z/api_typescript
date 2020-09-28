@@ -4,6 +4,7 @@ import Repeated from './Repeated';
 import Anime from './Anime';
 import Queue from './Queue';
 import Stack from './Stack';
+import SortingAlgorithms from './SortingAlgorithms';
 import express from 'express'
 
 let app = express();
@@ -14,5 +15,6 @@ app.use('/repeated', Repeated);
 app.use('/anime', Anime);
 app.use('/queue', Queue);
 app.use('/stack', Stack);
+app.use('/algorithms', SortingAlgorithms)
 
 export default app;
