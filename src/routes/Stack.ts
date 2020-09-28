@@ -1,11 +1,11 @@
 import { Router, Response, Request, NextFunction } from 'express'
-import { Stack } from '../classes/Stack';
+import { StackCollection } from '../classes/Stack';
 
 const router = Router()
 
 router.route('/')
   .get((req: Request, res: Response, next: NextFunction) => {
-    let stack = new Stack(2);
+    let stack = new StackCollection(2);
     stack.push(2);
     stack.push(3);
     res.json({

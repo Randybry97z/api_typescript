@@ -5,15 +5,16 @@ import helmet from 'helmet';
 
 import express, { Request, Response, NextFunction } from 'express';
 import { BAD_REQUEST } from 'http-status-codes';
+import * as rutas from './routes/routes';
 import 'express-async-errors';
 
 //Importing routes
-import Ping from './routes/Ping';
+/* import Ping from './routes/Ping';
 import Palindrome from './routes/Palindrome';
 import Repeated from './routes/Repeated';
 import Anime from './routes/Anime';
 import Queue from './routes/Queue';
-import Stack from './routes/Stack';
+import Stack from './routes/Stack'; */
 
 import logger from '@shared/Logger';
 
@@ -34,12 +35,7 @@ if (process.env.NODE_ENV === 'production') {
     app.use(helmet());
 } */
 
-app.use('/ping', Ping);
-app.use('/palindrome', Palindrome);
-app.use('/repeated', Repeated);
-app.use('/anime', Anime);
-app.use('/queue', Queue);
-app.use('/stack', Stack);
+app.use('/api', rutas.default)
 
 // Export express instance
 export default app;
