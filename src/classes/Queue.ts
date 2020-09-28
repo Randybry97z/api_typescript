@@ -1,15 +1,18 @@
 import { IQueue } from '../interfaces/IQueue';
-export class Queue<T> implements IQueue<T> {
+import { Collection } from './Collection';
+export class Queue<T> extends Collection<T> implements IQueue<T> {
   private collection: T[] = [];
 
-  constructor(private capacity: number = Infinity) { }
+  constructor(private capacity: number = Infinity) {
+    super();
+  }
 
   print() {
     return this.collection;
   }
 
   enqueue(element: T): void {
-    if (this.size() === this.capacity) {
+    if (this.isFull()) {
       throw Error("Ups! The Queue is full");
     }
     this.collection.push(element)
@@ -27,7 +30,7 @@ export class Queue<T> implements IQueue<T> {
     return this.collection.length
   }
 
-  isEmpty() {
-    return (this.collection.length === 0)
+  isFull(): boolean {
+    return this.capacity == this.size()
   }
 };

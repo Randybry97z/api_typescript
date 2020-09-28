@@ -1,22 +1,24 @@
+import { Collection } from './Collection';
 import { IStack } from 'src/interfaces/IStack';
 
-export class Stack<T> implements IStack<T>{
-  private storage: T[] = [];
+export class StackCollection<T> extends Collection<T> implements IStack<T>{
 
-  constructor(private capacity: number = Infinity) { }
+  constructor(private capacity: number = Infinity) {
+    super();
+  }
 
   push(element: T) {
-    if (this.size() === this.capacity) {
+    if (this.isFull()) {
       throw Error("Ups! The stack is full");
     }
     return this.storage.push(element);
   }
 
-  pop() {
+  pop(): T | undefined {
     return this.storage.pop();
   }
 
-  peek() {
+  peek(): T | undefined {
     return this.storage[this.size() - 1];
   }
 
@@ -24,7 +26,7 @@ export class Stack<T> implements IStack<T>{
     return this.storage
   }
 
-  size() {
-    return this.storage.length;
+  isFull(): boolean {
+    return this.capacity == this.size();
   }
 }
